@@ -1,6 +1,6 @@
 # react_mobx-demo
 
-```
+```sh
 # for development w/ local server
 npm run dev
 
@@ -8,12 +8,12 @@ npm run dev
 npm run build
 ```
 
-You can specify steps to develop, by passing path as `context`.(defailt is `./1`)
+You can specify steps to develop, by passing directory path as `context`. (defailt is `./1`)
 
-```
-# dev step2
+```sh
+# dev step 2
 npm run dev -- --context ./2
 
-# build step2
+# build step 3
 npm run build -- --context ./3
 ```
