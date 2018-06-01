@@ -10,6 +10,7 @@
   "dependencies": {
     "mobx": "^4.3.0",
     "mobx-react": "^5.1.2",
+    "navigo": "^7.1.2",
     "react": "^16.4.0",
     "react-dom": "^16.4.0"
   },
