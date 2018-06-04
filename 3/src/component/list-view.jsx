@@ -2,7 +2,11 @@ import React from 'react';
 import { observer } from 'mobx-react';
 import ListItem from './list-item';
 
-const ListView = ({ count = 0, memos }) => {
+const ListView = ({
+  count = 0,
+  memos,
+  onClickDeleteMemo,
+}) => {
   memos = memos.slice(count * -1).reverse();
 
   return (
@@ -16,6 +20,7 @@ const ListView = ({ count = 0, memos }) => {
         <ListItem
           key={memo.id}
           memo={memo}
+          onClickDeleteMemo={memo => onClickDeleteMemo(memo)}
         />
       ))}
     </div>

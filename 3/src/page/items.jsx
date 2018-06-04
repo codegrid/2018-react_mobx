@@ -7,6 +7,7 @@ const Items = ({ store }) => (
     <div className="layout-items-left">
       <ListView
         memos={store.memos}
+        onClickDeleteMemo={memo => store.deleteMemo(memo)}
       />
     </div>
   </div>

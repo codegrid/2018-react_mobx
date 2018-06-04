@@ -29,6 +29,10 @@ class Store {
     draft.id = lastId + 1;
     this.memos.push(draft);
   }
+
+  deleteMemo(memo) {
+    this.memos.remove(memo);
+  }
 }
 
 decorate(Store, {

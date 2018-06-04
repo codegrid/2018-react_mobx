@@ -1,7 +1,7 @@
 import React from 'react';
 import { observer } from 'mobx-react';
 
-const ListItem = ({ memo }) => (
+const ListItem = ({ memo, onClickDeleteMemo }) => (
   <div className="list-item">
     <div>
       <span>id</span>：<span>{memo.id}</span>
@@ -18,7 +18,7 @@ const ListItem = ({ memo }) => (
       </span>
     </div>
     <div>
-      <button>削除</button>
+      <button onClick={() => onClickDeleteMemo(memo)}>削除</button>
     </div>
   </div>
 );

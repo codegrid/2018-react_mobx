@@ -8,6 +8,7 @@ const Root = ({ store }) => {
       <ListView
         count={3}
         memos={store.memos}
+        onClickDeleteMemo={memo => store.deleteMemo(memo)}
       />
       <a href="#/items" className="root-button">すべて見る</a>
     </React.Fragment>
