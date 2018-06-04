@@ -1,11 +1,12 @@
 import { decorate, observable, computed, action } from 'mobx';
 
 class Store {
-  constructor() {
+  constructor(memos) {
     this.route = {
       name: '',
       params: {},
     };
+    this.memos = memos;
   }
 
   get currentRoute() {
@@ -26,6 +27,7 @@ class Store {
 
 decorate(Store, {
   route: observable,
+  memos: observable,
   currentRoute: computed,
   updateRoute: action,
 });

@@ -1,6 +1,8 @@
 import React from 'react';
 import { observer } from 'mobx-react';
 import NavLink from './component/nav-link';
+import Root from './page/root';
+import Items from './page/items';
 
 const App = ({ store }) => {
   const { currentRoute } = store;
@@ -8,10 +10,10 @@ const App = ({ store }) => {
   let content = null;
   switch (true) {
     case currentRoute.root:
-      content = <div>ルート</div>;
+      content = <Root store={store} />;
       break;
     case currentRoute.items:
-      content = <div>一覧</div>;
+      content = <Items store={store} />
       break;
     case currentRoute.add:
       content = <div>追加</div>;

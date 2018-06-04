@@ -1,130 +1,202 @@
 body {
-  padding: 0;
-  margin: 0;
-}
-body, html {
-  color: #555;
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-}
-#app {
-  height: 100%;
-  display: flex;
-}
-#app .contents {
-  height: 100%;
-  flex-grow: 1;
-  box-sizing: border-box;
-}
-
-.menu {
-  display: flex;
-  flex-direction: column;
-  flex-shrink: 0;
-  background-color: #555;
-  color: #fff;
-}
-.menu a {
-  color: inherit;
-  text-decoration: none;
-  display: inline-block;
-  padding: 10px;
-  font-weight: 400;
-  font-size: 14px;
-}
-.menu a.router-link-active {
-  background-color: #fcfcfc;
-  color: #555;
+    padding: 0;
+    margin: 0
 }
 
 .editor-view {
-  flex-grow: 1;
-  border-radius: 2px;
-  height: 100%;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  max-width: 400px;
-  padding: 10px;
+    flex-grow: 1;
+    border-radius: 2px;
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    padding: 10px
 }
 
-.editor-view > div {
-  box-shadow: 0 1px 0 rgba(255,255,255, 1);
-  background-color: #fff;
-  font-size: 14px;
-  display: flex;
-  align-items: center;
-  margin-bottom: 5px;
+.editor-view>div {
+    box-shadow: 0 1px 0 #fff;
+    background-color: #fff;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px
 }
 
-.editor-view > div label {
-  color: #555;
-  font-size: 11px;
-  min-width: 35px;
-  text-align: right;
+.editor-view>div label {
+    color: #555;
+    font-size: 11px;
+    min-width: 35px;
+    text-align: right
 }
-.editor-view > div input {
-  flex-grow: 1;
-  box-sizing: border-box;
-  padding: 10px 5px;
-  outline-offset: -4px;
-  outline-width: 1px;
-  border: 1px solid #b3b3b3;
+
+.editor-view>div input {
+    flex-grow: 1;
+    box-sizing: border-box;
+    padding: 10px 5px;
+    outline-offset: -4px;
+    outline-width: 1px;
+    border: 1px solid #b3b3b3
 }
-.editor-view > div:last-of-type {
-  justify-content: flex-end;
-  padding: 5px 0 0;
+
+.editor-view>div:last-of-type {
+    justify-content: flex-end;
+    padding: 5px 0 0
 }
-.editor-view button {
-  margin-left: 10px;
-  background-color: #555;
-  color: #fff;
-  cursor: pointer;
-  border: none;
-  width: 100px;
-  line-height: 30px;
+
+.editor-view>div input:disabled {
+    border-color: transparent
+}
+
+.editor-view>div button {
+    margin-left: 10px;
+    background-color: #555;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+    width: 100px;
+    line-height: 30px
 }
 
 .list-view {
-  border-top: 1px solid #ddd;
+    border-top: 1px solid #ddd
 }
 
 .list-item {
-  position: relative;
-  padding: 5px;
-  border-bottom: 1px solid #ddd;
-  font-size: 12px;
+    position: relative;
+    padding: 5px;
+    border-bottom: 1px solid #ddd;
+    font-size: 12px;
+    cursor: pointer
 }
 
-.list-item:nth-of-type(2n + 1) {
-  background-color: #f6f6f6;
+.list-item:nth-of-type(2n+1) {
+    background-color: #f6f6f6
 }
 
-.list-item > div > span:nth-of-type(1) {
-  display: inline-block;
-  min-width: 26px;
+.list-item>div>span:nth-of-type(1) {
+    display: inline-block;
+    min-width: 26px
 }
 
-.list-item > div span:nth-of-type(2) span {
-  font-size: 10px;
-  background-color: #555;
-  color: #fff;
-  padding: 3px 5px;
-  position: relative;
-  margin-right: 5px;
+.list-item>div span:nth-of-type(2) span {
+    font-size: 10px;
+    background-color: #555;
+    color: #fff;
+    padding: 3px 5px;
+    position: relative;
+    margin-right: 5px
 }
 
-.list-item > div:nth-of-type(5) button {
-  cursor: pointer;
-  border: none;
-  color: #fff;
-  background-color: tomato;
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  display: none;
+.list-item button {
+    cursor: pointer;
+    border: none;
+    color: #fff;
+    background-color: tomato;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    display: none
 }
-.list-item:hover > div:nth-of-type(5) button {
-  display: block;
+
+.list-item:hover button {
+    display: block
+}
+
+body,html {
+    color: #555;
+    margin: 0;
+    padding: 0;
+    height: 100vh
+}
+
+#app {
+    height: 100%;
+    display: -ms-flexbox;
+    display: flex
+}
+
+#app .contents {
+    height: 100%;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    box-sizing: border-box
+}
+
+.menu {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    background-color: #555;
+    color: #fff
+}
+
+.menu a {
+    color: inherit;
+    text-decoration: none;
+    display: inline-block;
+    padding: 10px;
+    font-weight: 400;
+    font-size: 14px
+}
+
+.menu a:link {
+    color: inherit
+}
+
+.menu a.router-link-active {
+    background-color: #fcfcfc;
+    color: #555
+}
+
+.root-button {
+    display: block;
+    background-color: #555;
+    color: #fff;
+    text-decoration: none;
+    width: 200px;
+    text-align: center;
+    line-height: 40px;
+    margin: 10px auto
+}
+
+.layout-items {
+    display: -ms-flexbox;
+    display: flex;
+    overflow: hidden
+}
+
+.layout-items-left {
+  flex-grow: 1;
+  overflow: scroll;
+}
+.layout-items-right {
+  border-left: 1px solid #bbb;
+}
+
+.layout-items .layout-items-list {
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    border-right: 1px solid #e6e6e6;
+    overflow: scroll
+}
+
+.layout-items .layout-items-sort {
+    padding: 5px
+}
+
+.layout-items .list-item {
+    cursor: pointer
+}
+
+.layout-items .isEdit .list-item:hover button {
+    display: none
+}
+
+.tags {
+    padding: 5px;
+    font-size: 12px
 }
