@@ -1,8 +1,15 @@
 import React from 'react';
 import { observer } from 'mobx-react';
 
-const ListItem = ({ memo, onClickDeleteMemo }) => (
-  <div className="list-item">
+const ListItem = ({
+  memo,
+  onClickEditMemo,
+  onClickDeleteMemo,
+}) => (
+  <div
+    className="list-item"
+    onClick={() => onClickEditMemo(memo)}
+  >
     <div>
       <span>id</span>：<span>{memo.id}</span>
     </div>

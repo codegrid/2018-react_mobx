@@ -6,16 +6,13 @@ class EditorView extends React.Component {
   constructor(props) {
     super(props);
 
-    this.draft = observable({
-      text: '',
-      date: '',
-      tags: [],
-    });
+    this._setDraftFromProps(props.editMemo);
     this.getDraftData = () => toJS(this.draft);
   }
 
   render() {
     const {
+      id,
       text,
       date,
       tags,
@@ -27,6 +24,16 @@ class EditorView extends React.Component {
 
     return (
       <div className="editor-view">
+        {id !== '' && (
+          <div>
+            <label>id：</label>
+            <input
+              type="text"
+              value={id}
+              disabled
+            />
+          </div>
+        )}
         <div>
           <label>内容：</label>
           <input
@@ -59,6 +66,26 @@ class EditorView extends React.Component {
         </div>
       </div>
     );
+  }
+
+  componentWillReact() {
+    if (!this.props.editMemo) {
+      return;
+    }
+
+    if (this.props.editMemo.id !== this.draft.id) {
+      this._setDraftFromProps(this.props.editMemo);
+    }
+  }
+
+  _setDraftFromProps(editMemo) {
+    const initDraft = editMemo ? toJS(editMemo) : {
+      id: '',
+      text: '',
+      date: '',
+      tags: [],
+    };
+    this.draft = observable(initDraft);
   }
 }
 

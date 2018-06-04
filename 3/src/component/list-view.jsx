@@ -5,6 +5,7 @@ import ListItem from './list-item';
 const ListView = ({
   count = 0,
   memos,
+  onClickEditMemo = () => {},
   onClickDeleteMemo,
 }) => {
   memos = memos.slice(count * -1).reverse();
@@ -20,6 +21,7 @@ const ListView = ({
         <ListItem
           key={memo.id}
           memo={memo}
+          onClickEditMemo={memo => onClickEditMemo(memo)}
           onClickDeleteMemo={memo => onClickDeleteMemo(memo)}
         />
       ))}
