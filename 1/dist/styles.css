@@ -2,6 +2,42 @@ body {
   padding: 0;
   margin: 0;
 }
+body, html {
+  color: #555;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
+#app {
+  height: 100%;
+  display: flex;
+}
+#app .contents {
+  height: 100%;
+  flex-grow: 1;
+  box-sizing: border-box;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  background-color: #555;
+  color: #fff;
+}
+.menu a {
+  color: inherit;
+  text-decoration: none;
+  display: inline-block;
+  padding: 10px;
+  font-weight: 400;
+  font-size: 14px;
+}
+.menu a.router-link-active {
+  background-color: #fcfcfc;
+  color: #555;
+}
+
 .editor-view {
   flex-grow: 1;
   border-radius: 2px;
