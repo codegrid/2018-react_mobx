@@ -1,35 +1,31 @@
 import React from 'react';
 import { observer, inject } from 'mobx-react';
 import NavLink from './component/nav-link';
-import Root from './page/root';
-import Items from './page/items';
-import Add from './page/add';
+import RouterContent from './page/router-content';
 
-const App = ({ ui }) => {
-  const { currentRoute } = ui;
+class App extends React.Component {
+  render() {
+    const { currentRoute, err } = this.props.ui;
 
-  let content = null;
-  switch (true) {
-    case currentRoute.root:
-      content = <Root />;
-      break;
-    case currentRoute.items:
-      content = <Items />;
-      break;
-    case currentRoute.add:
-      content = <Add />;
-      break;
-    default:
+    if (err !== null) {
+      return <div>Unknown error!</div>;
+    }
+
+    return (
+      <React.Fragment>
+        <NavLink currentRoute={currentRoute} />
+        <div className="contents">
+          <RouterContent currentRoute={currentRoute} />
+        </div>
+      </React.Fragment>
+    );
   }
 
-  return (
-    <React.Fragment>
-      <NavLink currentRoute={currentRoute} />
-      <div className="contents">
-        {content}
-      </div>
-    </React.Fragment>
-  );
-};
+  componentDidCatch(err, info) {
+    const { ui } = this.props;
+    ui.setError(err);
+    console.error(err, info);
+  }
+}
 
 export default inject('ui')(observer(App));

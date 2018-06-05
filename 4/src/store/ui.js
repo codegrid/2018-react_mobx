@@ -6,6 +6,7 @@ class UiStore {
       name: '',
       params: {},
     };
+    this.err = null;
   }
 
   get currentRoute() {
@@ -35,13 +36,19 @@ class UiStore {
     route.name = name;
     route.params = params;
   }
+
+  setError(err) {
+    this.err = err;
+  }
 }
 
 decorate(UiStore, {
   route: observable,
+  err: observable,
   currentRoute: computed.struct,
   editMemoId: computed,
   updateRoute: action,
+  setError: action,
 });
 
 export default UiStore;
