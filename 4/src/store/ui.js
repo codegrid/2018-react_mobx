@@ -39,7 +39,7 @@ class UiStore {
 
 decorate(UiStore, {
   route: observable,
-  currentRoute: computed,
+  currentRoute: computed.struct,
   editMemoId: computed,
   updateRoute: action,
 });

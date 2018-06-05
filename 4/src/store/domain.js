@@ -34,7 +34,7 @@ class DomainStore {
 }
 
 decorate(DomainStore, {
-  memos: observable,
+  memos: observable.shallow,
   editMemo: observable,
   saveNewMemo: action,
   deleteMemo: action,
