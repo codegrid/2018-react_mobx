@@ -3,21 +3,21 @@ import { observer } from 'mobx-react';
 import ListView from '../component/list-view';
 import EditorView from '../component/editor-view';
 
-const Items = ({ store }) => (
+const Items = ({ domain }) => (
   <div className="layout-items">
     <div className="layout-items-left">
       <ListView
-        memos={store.memos}
+        memos={domain.memos}
         onClickEditMemo={memo => location.hash = `/items/${memo.id}`}
-        onClickDeleteMemo={memo => store.deleteMemo(memo)}
+        onClickDeleteMemo={memo => domain.deleteMemo(memo)}
       />
     </div>
-    {store.editMemo && (
+    {domain.editMemo !== null && (
       <div className="layout-items-left">
         <EditorView
-          editMemo={store.editMemo}
+          editMemo={domain.editMemo}
           onClickSave={memo => {
-            store.updateMemo(memo);
+            domain.updateMemo(memo);
             location.hash = '/items';
           }}
           onClickCancel={() => location.hash = '/items'}

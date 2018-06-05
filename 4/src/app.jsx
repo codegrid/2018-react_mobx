@@ -5,26 +5,26 @@ import Root from './page/root';
 import Items from './page/items';
 import Add from './page/add';
 
-const App = ({ store }) => {
-  const { currentRoute } = store;
+const App = ({ ui, domain }) => {
+  const { currentRoute } = ui;
 
   let content = null;
   switch (true) {
     case currentRoute.root:
-      content = <Root store={store} />;
+      content = <Root domain={domain} />;
       break;
     case currentRoute.items:
-      content = <Items store={store} />;
+      content = <Items domain={domain} />;
       break;
     case currentRoute.add:
-      content = <Add store={store} />;
+      content = <Add domain={domain} />;
       break;
     default:
   }
 
   return (
     <React.Fragment>
-      <NavLink store={store} />
+      <NavLink ui={ui} />
       <div className="contents">
         {content}
       </div>
