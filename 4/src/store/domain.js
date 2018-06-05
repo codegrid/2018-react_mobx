@@ -6,7 +6,6 @@ class DomainStore {
     this.editMemo = null;
   }
 
-
   saveNewMemo(draft) {
     const lastMemo = this.memos[this.memos.length - 1];
     const lastId = lastMemo ? lastMemo.id : 0;

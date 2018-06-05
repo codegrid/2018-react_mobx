@@ -1,5 +1,5 @@
 import React from 'react';
-import { observer } from 'mobx-react';
+import { observer, inject } from 'mobx-react';
 import EditorView from '../component/editor-view';
 
 const Add = ({ domain }) => (
@@ -12,4 +12,4 @@ const Add = ({ domain }) => (
   />
 );
 
-export default observer(Add);
+export default inject('domain')(observer(Add));

@@ -1,5 +1,5 @@
 import React from 'react';
-import { observer } from 'mobx-react';
+import { observer, inject } from 'mobx-react';
 import ListView from '../component/list-view';
 
 const Root = ({ domain }) => {
@@ -15,4 +15,4 @@ const Root = ({ domain }) => {
   );
 };
 
-export default observer(Root);
+export default inject('domain')(observer(Root));

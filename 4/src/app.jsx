@@ -1,30 +1,30 @@
 import React from 'react';
-import { observer } from 'mobx-react';
+import { observer, inject } from 'mobx-react';
 import NavLink from './component/nav-link';
 import Root from './page/root';
 import Items from './page/items';
 import Add from './page/add';
 
-const App = ({ ui, domain }) => {
+const App = ({ ui }) => {
   const { currentRoute } = ui;
 
   let content = null;
   switch (true) {
     case currentRoute.root:
-      content = <Root domain={domain} />;
+      content = <Root />;
       break;
     case currentRoute.items:
-      content = <Items domain={domain} />;
+      content = <Items />;
       break;
     case currentRoute.add:
-      content = <Add domain={domain} />;
+      content = <Add />;
       break;
     default:
   }
 
   return (
     <React.Fragment>
-      <NavLink ui={ui} />
+      <NavLink currentRoute={currentRoute} />
       <div className="contents">
         {content}
       </div>
@@ -32,4 +32,4 @@ const App = ({ ui, domain }) => {
   );
 };
 
-export default observer(App);
+export default inject('ui')(observer(App));

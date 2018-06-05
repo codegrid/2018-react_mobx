@@ -1,5 +1,5 @@
 import React from 'react';
-import { observer } from 'mobx-react';
+import { observer, inject } from 'mobx-react';
 import ListView from '../component/list-view';
 import EditorView from '../component/editor-view';
 
@@ -27,4 +27,4 @@ const Items = ({ domain }) => (
   </div>
 );
 
-export default observer(Items);
+export default inject('domain')(observer(Items));

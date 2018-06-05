@@ -1,5 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
+import { Provider } from 'mobx-react';
 import Store from './store';
 import { initRouter } from './router';
 import App from './app';
@@ -9,6 +10,11 @@ const store = new Store(memos);
 initRouter((name, params) => store.ui.updateRoute(name, params));
 
 render(
-  <App domain={store.domain} ui={store.ui} />,
+  <Provider
+    domain={store.domain}
+    ui={store.ui}
+  >
+    <App />
+  </Provider>,
   document.getElementById('app')
 );
