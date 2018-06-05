@@ -13,9 +13,7 @@ class Store {
   _initReactions() {
     reaction(
       () => this.ui.editMemoId,
-      id => {
-        this.domain.setEditMemo(id);
-      },
+      id => this.domain.setEditMemo(id),
     );
   }
 }
